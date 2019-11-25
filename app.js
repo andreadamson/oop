@@ -1,36 +1,30 @@
 //document meetodid
-//elementide loomine
-
-//loo element
-const liElement = document.createElement('li');
-
-//lisa klass
-liElement.className = 'collection-item';
-
-//lisa ID
-liElement.id = 'new-item';
-
-//lisan attribuudi
-liElement.setAttribute('title', 'uus element');
-
-//lisan teksti väljundi
-liElement.textContent = 'Uus element';
-
-//loome lingi
-
-const link = document.createElement('a');
-
-link.className = 'delete-item secondary-content';
-
-link.innerHTML = '<i ci class="fa fa-remove"><i>';
+//elementide kustutamine
 
 
-//lisame lingi listi elemendi sisse
+const liElemendid = document.querySelectorAll('li');
 
-liElement.appendChild(link);
+//kustutan viimase elemendi
+liElemendid[2].remove();
 
-ulElement = document.querySelector('ul.collection');
+const ulElemendid = document.querySelector('ul');
 
-ulElement.appendChild(liElement);
+ulElemendid.removeChild(liElemendid[1])
 
-console.log();
+const liElement = liElemendid[0];
+const link = liElement.children[0]
+
+let sisu = liElement.className;
+sisu = link.classList;
+sisu = link.classList[1];
+link.classList.remove('secondary-content')
+link.classList.add('secondary-content')
+
+sisu = link.getAttribute('href');
+link.setAttribute('href', 'https.//google.com')
+
+sisu = link
+
+link.setAttribute('title', 'google');
+link.removeAttribute('title');
+console.log(sisu)
