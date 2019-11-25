@@ -1,35 +1,30 @@
+//inimese kirjeldus OOP abil
+//konstruktor
 
-let eesnimi,perenimi;
-let synniKuupaev;
+function Isik(e, p, skp) {
+    this.eesnimi = e;
+    this.perenimi = p;
+    this.synnikuupaev = new Date(skp);
 
-function taisNimi(eesnimi, perenimi){
-    return `${eesnimi} ${perenimi}`;
+//väljasta täisnimi
+
+this.taisNimi = function() {
+    return `${this.eesnimi} ${this.perenimi}`;
 }
 
-function arvutaVanus(synniKuupaev){
-    synniKuupaev = new Date(synniKuupaev);
-    vaheSekundites = Date.now() - synniKuupaev.getTime();
-    vanusDate = new Date(vaheSekundites);
-    aastaDate = vanusDate.getUTCFullYear();
-    vanus= aastaDate - 1970;
-    return `vanus: ${vanus}`
+
+// arvuta vanus
+    this.arvutaVanus = function() {
+        const vaheSekundites = Date.now() - this.synnikuupaev.getTime();
+        const vanusDate = new Date(vaheSekundites);
+        const taisAasta = vanusDate.getUTCFullYear();
+        const vanus = taisAasta - 1970;
+        return vanus;
+    }
 }
 
-console.log(taisNimi("Andre", "Adamson"));
-console.log(arvutaVanus("2000.07.11"))
-/*
-let eesnimi = "Madis";
-let perekonnanimi= "Yeet";
-let synniKuupaev = "11.07.2000"; 
-
-const taisNimi = eesnimi+ " " + perekonnanimi
-
-function getAge(dob) {
-const today = new Date();
-let vanus = today.getFullYear() - synniKuupaev.getFullYear();
-}
-
-console.log(getAge.today)
-console.log(synniKuupaev)
-console.log(taisNimi)
-console.log(getAge) */
+const andre = new Isik("Andre","Adamson" ,"07-11-2000");
+const kadi = new Isik("Kadi","zopp" ,"11-11-1569");
+console.log(andre)
+console.log(andre.arvutaVanus())
+console.log(kadi.arvutaVanus())
