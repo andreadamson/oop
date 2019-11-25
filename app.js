@@ -1,30 +1,35 @@
-//document meetodid
-//elementide kustutamine
 
+let eesnimi,perenimi;
+let synniKuupaev;
 
-const liElemendid = document.querySelectorAll('li');
+function taisNimi(eesnimi, perenimi){
+    return `${eesnimi} ${perenimi}`;
+}
 
-//kustutan viimase elemendi
-liElemendid[2].remove();
+function arvutaVanus(synniKuupaev){
+    synniKuupaev = new Date(synniKuupaev);
+    vaheSekundites = Date.now() - synniKuupaev.getTime();
+    vanusDate = new Date(vaheSekundites);
+    aastaDate = vanusDate.getUTCFullYear();
+    vanus= aastaDate - 1970;
+    return `vanus: ${vanus}`
+}
 
-const ulElemendid = document.querySelector('ul');
+console.log(taisNimi("Andre", "Adamson"));
+console.log(arvutaVanus("2000.07.11"))
+/*
+let eesnimi = "Madis";
+let perekonnanimi= "Yeet";
+let synniKuupaev = "11.07.2000"; 
 
-ulElemendid.removeChild(liElemendid[1])
+const taisNimi = eesnimi+ " " + perekonnanimi
 
-const liElement = liElemendid[0];
-const link = liElement.children[0]
+function getAge(dob) {
+const today = new Date();
+let vanus = today.getFullYear() - synniKuupaev.getFullYear();
+}
 
-let sisu = liElement.className;
-sisu = link.classList;
-sisu = link.classList[1];
-link.classList.remove('secondary-content')
-link.classList.add('secondary-content')
-
-sisu = link.getAttribute('href');
-link.setAttribute('href', 'https.//google.com')
-
-sisu = link
-
-link.setAttribute('title', 'google');
-link.removeAttribute('title');
-console.log(sisu)
+console.log(getAge.today)
+console.log(synniKuupaev)
+console.log(taisNimi)
+console.log(getAge) */
