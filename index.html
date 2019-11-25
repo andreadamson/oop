@@ -4,43 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- skeleton cdn algus -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <!-- skeleton cdn lõpp -->
   <title>Raamatud</title>
-  <!--Skeleton cdn-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha256-ECB9bbROLGm8wOoEbHcHRxlHgzGqYpDtNTgDTyDz0wg=" crossorigin="anonymous" />
-  <!--Skeleton cdn lõpp-->
 </head>
 <body>
   <div class="container">
     <h1>Raamatud</h1>
-    <!--Raamatu lisamise form-->
+    <!-- raamatu lisamise vormi algus -->
     <form id="book-form">
+      <!-- vormi sisestusväli - pealkiri -->
       <div>
         <label for="title">Pealkiri</label>
         <input type="text" id="title" class="u-full-width">
       </div>
+      <!-- vormi sisestusväli - autor -->
       <div>
-          <label for="author">Autor</label>
-          <input type="text" id="title" class="u-full-width">
+        <label for="author">Autor</label>
+        <input type="text" id="author" class="u-full-width">
       </div>
+      <!-- vormi sisestusväli - ISBN -->
       <div>
-            <label for="isbn">ISBN</label>
-            <input type="text" id="title" class="u-full-width">
+        <label for="isbn">ISBN</label>
+        <input type="text" id="isbn" class="u-full-width">
       </div>
+      <!-- nupp -->
       <div>
-        <input type="submit" value="lisa" class="u-full-width">
+        <input type="submit" value="Lisa" class="u-full-width">
       </div>
-      <!-- raamatute kuvamine-->
-      <table class="u-full-width">
-        <thead>
-          <tr>
-            <th>Pealkiri</th>
-            <th>autor</th>
-            <th>ISBN</th>
-          </tr>
-        </thead>
-        <tbody id="book-list"></tbody>
-      </table>    
     </form>
+    <!-- raamatu lisamise vormi lõpp -->
+    <!-- raamatute kuvamine - algus -->
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Pealkiri</th>
+          <th>Autor</th>
+          <th>ISBN</th>
+        </tr>
+      </thead>
+      <tbody id="book-list"></tbody>
+    </table>
+    <!-- raamatute kuvamine - lõpp -->
   </div>
   <script src="app.js"></script>
 </body>
