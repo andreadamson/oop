@@ -1,43 +1,33 @@
-// storage
+//inimese kirjeldus OOP abil
+//konstruktor
 
-// salvestame väärtus
-// localStorage.setItem('eesnimi', 'Anna');
-// localStorage.setItem('perenimi', 'Karutina');
-
-// väärtuse eemaldamine
-// localStorage.removeItem('nimi');
-
-// väärtuste lugemine
-// const eesnimi = localStorage.getItem('eesnimi');
-// console.log(eesnimi);
-// const perenimi = localStorage.getItem('perenimi');
-// console.log(perenimi);
-
-// eemalda kõik väärtused
-// localStorage.clear();
-
-document.querySelector('form').addEventListener('submit', salvesta);
-
-function salvesta(e){
-  const uusYlesanne = document.getElementById('task').value;
-  let ylesanded;
-  if(localStorage.getItem('tasks') === null){
-    ylesanded = []; // tekitame massiivi, kui veel ülesandeid pole
-  } else {
-    ylesanded = JSON.parse(localStorage.getItem('tasks'));
-    // loeme LS andmed, teisendame JSON elemendiks - JS struktuuriks
-  }
-  console.log(ylesanded);
-  ylesanded.push(uusYlesanne); // lisame element massiivi lõppu
-  console.log('ulesanne lisatud');
-  localStorage.setItem('tasks', JSON.stringify(ylesanded)); // lisame andmed LS sisse
-  e.preventDefault();
+function Isik(e, p,) {
+    this.eesnimi = e;
+    this.perenimi = p;
 }
 
+//väljasta täisnimi
+Isik.prototype.taisNimi = function() {
+    return `${this.eesnimi} ${this.perenimi}`;
+}
 
+//Kliendi konstruktor
+function Klient(e, p, t, s) {
+    Isik.call(this, e, p); //konstruktori laiendamine
+    this.telefon = t;
+    this.status = s;
+}
 
- // loeme sisestatud ülesanded
- const ylesanded = JSON.parse(localStorage.getItem('tasks'));
- ylesanded.forEach(ylesanne => {
-   console.log(ylesanne);
- }); 
+//teiste meetodite /funktsiooni kasutamine
+Klient.prototype = Object.create(Isik.prototype);
+Klient.prototype.constructor = Klient;
+
+//määrame täisnime funktsiooni klient objektile
+
+Klient.prototype.taisNimi = function() {
+    return `${this.eesnimi} ${this.perenimi} - sinul on ${this.status} tase`;
+}
+
+const kadi = new Klient("Kadi","Zopp", "1234 5678", "hõbe");
+
+console.log(kadi.taisNimi())
