@@ -1,33 +1,34 @@
-//inimese kirjeldus OOP abil
-//konstruktor
+// document meetodid
+// elementide kustutamine
 
-function Isik(e, p,) {
-    this.eesnimi = e;
-    this.perenimi = p;
-}
+// leia antud DOM-is kõik li elemendid
+const liEmenedid = document.querySelectorAll('li');
+// kustuta konkreetne element
+liEmenedid[2].remove();
+// leia antud DOM-is ul element
+const ulElement = document.querySelector('ul');
+// kustuta antud elemendist li
+// li on ul child elemendid
+ulElement.removeChild(liEmenedid[1]);
 
-//väljasta täisnimi
-Isik.prototype.taisNimi = function() {
-    return `${this.eesnimi} ${this.perenimi}`;
-}
+/ nimekirja element
+const liElement = liEmenedid[0]; 
+// kustutamislink
+const link = liElement.children[0];
+// class ja atribute - kustutamine
+// class
+let sisu = link.className;
+sisu = link.classList;
+sisu = link.classList[1];
+link.classList.remove('secondary-content');
+link.classList.add('secondary-content');
+sisu = link.classList;
+sisu = link;
 
-//Kliendi konstruktor
-function Klient(e, p, t, s) {
-    Isik.call(this, e, p); //konstruktori laiendamine
-    this.telefon = t;
-    this.status = s;
-}
-
-//teiste meetodite /funktsiooni kasutamine
-Klient.prototype = Object.create(Isik.prototype);
-Klient.prototype.constructor = Klient;
-
-//määrame täisnime funktsiooni klient objektile
-
-Klient.prototype.taisNimi = function() {
-    return `${this.eesnimi} ${this.perenimi} - sinul on ${this.status} tase`;
-}
-
-const kadi = new Klient("Kadi","Zopp", "1234 5678", "hõbe");
-
-console.log(kadi.taisNimi())
+// atrubuut
+sisu = link.getAttribute('href');
+link.setAttribute('href', 'https://google.com');
+link.setAttribute('title', 'Google');
+link.removeAttribute('title');
+sisu = link;
+console.log(sisu); 
