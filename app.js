@@ -36,6 +36,7 @@ KL.prototype.lisaRaamatTabelisse = function (r) {
 KL.prototype.teade = function(s){
     //loome div'i
     const  div = document.createElement('div');
+    div.className = 'alert';
     const tekst = document.createTextNode(s);
     div.appendChild(tekst);
     const konteiner = document.querySelector('.container');
@@ -43,6 +44,11 @@ KL.prototype.teade = function(s){
 
     konteiner.insertBefore(div, vorm);
 }
+
+  // kustutame teade 5 sekundi möödumisel
+  setTimeout(function(){ 
+    document.querySelector('.alert').remove();
+   }, 5000);
 
 
   // kirjeldame raamatu lisamise sündmust
