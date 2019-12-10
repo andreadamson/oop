@@ -27,9 +27,16 @@ KL.prototype.lisaRaamatTabelisse = function (r) {
         <td>${r.pealkiri}</td>
         <td>${r.autor}</td>
         <td>${r.isbn}</td>
+        <td><a href="#">X</a></td>
     `
     tabel = document.getElementById('book-list');
     tabel.appendChild(rida)
+}
+
+// raamatu kustutamine tabelist
+KL.prototype.kustutaRaamatTabelist = function(kustutaElement){
+  tabeliRida = kustutaElement.parentElement.parentElement;
+  tabeliRida.remove();
 }
 
 //teate väljastamine
@@ -80,4 +87,19 @@ KL.prototype.teade = function(s, stiil){
     kl.puhastaSisend();
   
     e.preventDefault();
-  } 
+}
+
+// raamatu kustutamise sündmus
+document.getElementById('book-list').addEventListener('click', kustutaRaamat);
+
+function kustutaRaamat(e){
+  // loome kasutaja liidese objekt temaga opereerimiseks
+  const kl = new KL();
+
+  // kutsume tabelis oleva raamatu kustutamise
+  // funktsioon
+  kl.kustutaRaamatTabelist(e.target);
+
+  // väljastame vastav teade
+  kl.teade('Raamat on kustutatud', 'valid');
+} 
