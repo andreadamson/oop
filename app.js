@@ -1,8 +1,10 @@
-  
 // weather for given location
 const weather = new Weather('Tartu linn');
 // app UI
 const ui = new UI();
+
+//default weather
+document.addEventListener('DOMContentLoaded',drawWeather);
 
 //change city - weather
 const changeBTN = document.getElementById("w-change")
