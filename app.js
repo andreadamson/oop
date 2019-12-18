@@ -1,5 +1,30 @@
 document.getElementById('btn1').addEventListener('click', getTextData);
 document.getElementById('btn2').addEventListener('click', getJSONData);
+document.getElementById('btn3').addEventListener('click', getJSONAPI);
+
+//remote api
+
+function getJSONAPI() {
+  fetch('https://api.github.com/users')
+  .then(function (res){
+    return res.json();
+  })
+
+  .then(function(data){
+    console.log(data)
+    let out = "";
+    out = "";
+    data.forEach(function(users){
+      out = out + `<li>${users.login}</li>`
+      out = out + `<img src="${users.avatar_url} width=50px</img>`
+    })
+    document.getElementById('out').innerHTML = out;
+  })
+
+  .catch(function(error) {
+    console.log(error)
+  });
+}
 
 //lokaalne JSON fail
 function getJSONData() {
