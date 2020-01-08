@@ -19,7 +19,6 @@ function lisaYlesanne(e){
     if(task == ''){
         kl.teade("lisa ülesanne", "invalid");
     }else{
-        console.log(ylesanne)
         kl.lisaYlesanneTabelisse(ylesanne)
 
         const ls = new LS();
@@ -37,17 +36,22 @@ document.querySelector('.collection').addEventListener('click', kustutaYlesanne)
 function kustutaYlesanne(e){
     const kl = new KL();
 
-    const X = e.target.parentElement.previousElementSibling.textContent;
+    const X = e.target
 
-
-    console.log(X)
+    task = X.parentElement.previousElementSibling.textContent;
     kl.kustutaYlesanneTabelist(X)
 
     const ls = new LS();
 
     onKustutatud = ls.kustutaYlesanneLS(task);
 
+    if(onKustutatud){
+        kl.teade('ülesanne on kustutatud', 'valid');
+       }
+       
+       e.preventDefault();
+     }
     
-}
+
 
 

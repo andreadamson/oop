@@ -7,7 +7,7 @@ class KL{
         const rida = document.createElement('li');
         rida.innerHTML = `
         <p>${y.task}</p>
-        <a class="delete-item kustuta secondary-content"><i class="fa fa-remove"></i></a>`;
+        <a class="delete-item secondary-content"><i class="fa kustuta fa-remove"></i></a>`;
 
         const tabel = document.querySelector('.collection');
         tabel.appendChild(rida);
