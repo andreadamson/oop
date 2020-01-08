@@ -32,8 +32,8 @@ class KL{
         };
 
     kustutaYlesanneTabelist(kustutaElement){
-        if(kustutaElement.className === 'kustuta'){
-            const tabeliRida = kustutaElement.parentElement;
+        if(kustutaElement.className === 'fa kustuta fa-remove'){
+            const tabeliRida = kustutaElement.parentElement.parentElement;
             tabeliRida.remove();
             return true;
         }

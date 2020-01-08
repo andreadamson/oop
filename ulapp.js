@@ -7,6 +7,19 @@ function ylesanded(e){
     kl.naitaYlesanded();
 };
 
+document.getElementById('clear-tasks').addEventListener('click', clearTasks);
+
+function clearTasks(e){
+    const ylesandedList = document.querySelector('.collection');
+    while(ylesandedList.firstChild) {
+        ylesandedList.removeChild(ylesandedList.firstChild);
+    }
+
+    localStorage.clear();
+    const kl = new KL();
+    kl.teade('ülesanded on kustutatud', 'valid')
+}
+
 document.getElementById('task-form').addEventListener('submit', lisaYlesanne);
 
 function lisaYlesanne(e){
